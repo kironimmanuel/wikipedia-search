@@ -1,6 +1,4 @@
-import React from 'react'
-
-function Article(data) {
+const Article = data => {
   return (
     <>
       {Object.values(data).map((article, index) => {

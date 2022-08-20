@@ -1,10 +1,15 @@
-import React, { useEffect, useRef } from 'react'
-import { useFetch } from './hooks/useFetch'
-import Article from './components/Article'
+import React, { useRef } from 'react'
+import { Slide, toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import logo from './assets/images/logo.png'
+import Wrapper from './assets/wrappers/App.js'
+import Form from './components/form/Form'
+import Article from './components/ui/Article'
+import Loading from './components/ui/Loading'
+import { useFetch } from './hooks/useFetch'
 
 function App() {
-  const [{ data, loading, error }, fetchData, setLoading, setError] = useFetch()
+  const [{ data, loading }, fetchData] = useFetch()
   const inputRef = useRef(null)
 
   const handleSubmit = e => {
@@ -12,37 +17,38 @@ function App() {
     if (inputRef.current.value) {
       fetchData(inputRef.current.value)
     } else if (!inputRef.current.value) {
-      setError('please type in a value')
+      toast.info('Please fill out the search field')
     }
   }
 
-  useEffect(() => {
-    setLoading(false)
-  }, [])
-
   return (
-    <section className="wiki">
-      <div className="container">
-        <img src={logo} alt="" />
-        <h3>Wiki search</h3>
-        <form className="form" onSubmit={handleSubmit}>
-          <input type="text" className="form-input" ref={inputRef} />
-          <button type="submit" className="submit-btn" onClick={handleSubmit}>
-            search
-          </button>
-        </form>
-      </div>
-      <div className="results">
-        {error ? <div className="error">{error}</div> : ''}
-        {!loading ? (
-          <div className="articles">
-            <Article {...data} />
-          </div>
-        ) : (
-          <div className="loading"></div>
-        )}
-      </div>
-    </section>
+    <Wrapper>
+      <section className="wiki">
+        <div className="container">
+          <img src={logo} alt="" />
+          <h3>Wiki search</h3>
+          <Form handleSubmit={handleSubmit} inputRef={inputRef} />
+        </div>
+        <div className="results">
+          {!loading ? (
+            <div className="articles">
+              <Article {...data} />
+            </div>
+          ) : (
+            <Loading />
+          )}
+        </div>
+      </section>
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        draggablePercent={80}
+        pauseOnHover={false}
+        transition={Slide}
+        hideProgressBar
+        closeOnClick
+      />
+    </Wrapper>
   )
 }
 
