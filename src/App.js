@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Slide, toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import logo from './assets/images/logo.png'
+import img from './assets/images/globe.svg'
 import Wrapper from './assets/wrappers/App.js'
 import Form from './components/form/Form'
 import Article from './components/ui/Article'
@@ -25,7 +25,7 @@ function App() {
     <Wrapper>
       <section className="wiki">
         <div className="container">
-          <img src={logo} alt="" />
+          <img src={img} alt="globe" />
           <h3>Wiki search</h3>
           <Form handleSubmit={handleSubmit} inputRef={inputRef} />
         </div>
