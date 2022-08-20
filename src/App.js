@@ -26,7 +26,7 @@ function App() {
       <section className="wiki">
         <div className="container">
           <img src={img} alt="globe" />
-          <h3>Wiki search</h3>
+          <h3>Wikipedia search</h3>
           <Form handleSubmit={handleSubmit} inputRef={inputRef} />
         </div>
         <div className="results">

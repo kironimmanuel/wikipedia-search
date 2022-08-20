@@ -30,6 +30,14 @@ const Wrapper = styled.section`
     padding: 0.375rem 0.75rem;
     background: var(--backgroundColor);
     border: 1px solid var(--grey-200);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    span {
+      font-size: 1.2rem;
+      margin-bottom: -0.3rem;
+    }
   }
   .form-input {
     border-right: transparent;
