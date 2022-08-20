@@ -17,7 +17,9 @@ function App() {
     if (inputRef.current.value) {
       fetchData(inputRef.current.value)
     } else if (!inputRef.current.value) {
-      toast.info('Please fill out the search field')
+      toast.info('Please fill out the search field', {
+        toastId: 'custom-id-yes',
+      })
     }
   }
 

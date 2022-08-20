@@ -15,7 +15,9 @@ export const useFetch = () => {
       const data = await response.json()
       const results = data.query.search
       if (results.length < 1) {
-        toast.warn('No matching results found')
+        toast.warn('No matching results found', {
+          toastId: 'custom-id-yes',
+        })
         setLoading(false)
         setData([])
       } else {
@@ -23,7 +25,9 @@ export const useFetch = () => {
         setLoading(false)
       }
     } catch (error) {
-      toast.error('An error occurred')
+      toast.error('An error occurred', {
+        toastId: 'custom-id-yes',
+      })
       setLoading(false)
     }
   }
