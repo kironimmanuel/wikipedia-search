@@ -1,4 +1,4 @@
-import { AiOutlineSearch } from 'react-icons/ai'
+import { AiOutlineSearch } from "react-icons/ai";
 
 const Form = ({ handleSubmit, inputRef }) => {
   return (
@@ -11,6 +11,6 @@ const Form = ({ handleSubmit, inputRef }) => {
         search
       </button>
     </form>
-  )
-}
-export default Form
+  );
+};
+export default Form;

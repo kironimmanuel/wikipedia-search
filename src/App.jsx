@@ -1,27 +1,27 @@
-import React, { useRef } from 'react'
-import { Slide, toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import img from './assets/images/globe.svg'
-import Wrapper from './assets/wrappers/App.js'
-import Form from './components/form/Form'
-import Article from './components/ui/Article'
-import Loading from './components/ui/Loading'
-import { useFetch } from './hooks/useFetch'
+import React, { useRef } from "react";
+import { Slide, toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import img from "./assets/images/globe.svg";
+import Wrapper from "./assets/wrappers/App.js";
+import Form from "./components/form/Form";
+import Article from "./components/ui/Article";
+import Loading from "./components/ui/Loading";
+import { useFetch } from "./hooks/useFetch";
 
 function App() {
-  const [{ data, loading }, fetchData] = useFetch()
-  const inputRef = useRef(null)
+  const [{ data, loading }, fetchData] = useFetch();
+  const inputRef = useRef(null);
 
-  const handleSubmit = e => {
-    e.preventDefault()
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (inputRef.current.value) {
-      fetchData(inputRef.current.value)
+      fetchData(inputRef.current.value);
     } else if (!inputRef.current.value) {
-      toast.info('Please fill out the search field', {
-        toastId: 'custom-id-yes',
-      })
+      toast.info("Please fill out the search field", {
+        toastId: "custom-id-yes",
+      });
     }
-  }
+  };
 
   return (
     <Wrapper>
@@ -51,7 +51,7 @@ function App() {
         closeOnClick
       />
     </Wrapper>
-  )
+  );
 }
 
-export default App
+export default App;
