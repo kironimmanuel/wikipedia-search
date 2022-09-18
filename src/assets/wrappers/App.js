@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Wrapper = styled.section`
   .wiki {
@@ -78,14 +78,17 @@ const Wrapper = styled.section`
     padding: 1.5rem 2rem;
     border-radius: var(--borderRadius);
     transition: var(--transition);
+    max-width: 100vw;
+    box-shadow: var(--shadow-1);
   }
   .articles p {
     color: var(--grey-500);
     transition: var(--transition);
   }
   .articles a:hover {
-    background: var(--black);
-    color: var(--white);
+    /* background: var(--grey-800); */
+    /* color: var(--white); */
+    box-shadow: var(--shadow-3);
   }
   @media screen and (min-width: 768px) {
     .articles {
@@ -100,5 +103,5 @@ const Wrapper = styled.section`
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
-`
-export default Wrapper
+`;
+export default Wrapper;
