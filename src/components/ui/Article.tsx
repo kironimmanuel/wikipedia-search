@@ -1,4 +1,6 @@
-const Article = (data) => {
+import { IArticle } from "../../types/typings";
+
+const Article = (data: IArticle) => {
   return (
     <>
       {Object.values(data).map((article, index) => {
